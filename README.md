@@ -10,5 +10,4 @@
 
 
 - MVVM.
-- Room, ViewModel, LiveData, RecyclerView, Navigation Component, DI-библиотека (Dagger2, Koin...), Glide.
-
+- Room, ViewModel, LiveData, RecyclerView, Navigation Component, DI-библиотека Dagger2
