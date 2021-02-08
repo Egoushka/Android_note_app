@@ -1,27 +1,50 @@
 package com.languagexx.simplenotes.ui
 
+
+import android.R.attr
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.languagexx.simplenotes.R
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
+
+
 class MainActivity : DaggerAppCompatActivity() {
 
-    lateinit var navController: NavController
-
+    private lateinit var navController: NavController
+    companion object {
+        @JvmStatic private var curTheme = -1
+    }
     // Method #1
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        curTheme = if(curTheme == -1){
+            theme.applyStyle(R.style.AppTheme,true )
+            1
+        } else{
+            theme.applyStyle(R.style.DarkAppTheme,true )
+            -1
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         navController = findNavController(R.id.container)
 
-
         //Floating action button will redirect to Add New Notes Fragment #AddFragment
         add_new_note.setOnClickListener {
             onFloatingClicked()
+        }
+        change_theme.setOnClickListener {
+            val intent = intent // from getIntent()
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+            finish()
+            startActivity(intent)
         }
     }
 
@@ -32,7 +55,7 @@ class MainActivity : DaggerAppCompatActivity() {
     }
 
     // Method #3
-    fun showFloatingButton(){
+    fun showFloatingButton() {
         add_new_note.show()
         add_new_note.visibility = View.VISIBLE
     }

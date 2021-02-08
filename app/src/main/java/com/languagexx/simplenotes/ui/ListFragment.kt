@@ -18,7 +18,6 @@ import com.languagexx.simplenotes.util.ViewModelProviderFactory
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_list.*
-import kotlinx.android.synthetic.main.fragment_list.add_new_note
 import javax.inject.Inject
 
 class ListFragment : DaggerFragment(),

@@ -74,7 +74,7 @@ class EditFragment : DaggerFragment() {
         } else {
             Toast.makeText(activity, "Note is Discarded", Toast.LENGTH_SHORT).show()
             //Delete the note if all fields are empty (this is done by user)
-            val id: Int = EditFragmentArgs.fromBundle(requireArguments()).note?.id!!
+            val id: Int = EditFragmentArgs.fromBundle(arguments!!).note?.id!!
             noteViewModel.deleteById(id)
             Log.e("DEBUG", "deleting note")
         }
@@ -90,7 +90,7 @@ class EditFragment : DaggerFragment() {
     private fun saveNote() {
 
         //getting the id from bundle , we are using that id to update/edit the note
-        val id:Int? = EditFragmentArgs.fromBundle(requireArguments()).note?.id
+        val id:Int? = EditFragmentArgs.fromBundle(arguments!!).note?.id
 
         val note = Note(id!!,editTitle.text.toString(),editDescription.text.toString(),editTag.text.toString())
 
