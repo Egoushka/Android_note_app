@@ -10,7 +10,7 @@
 
 
 ● MVVM.
-● Обязательно использовать: Room, ViewModel, LiveData,
+● Room, ViewModel, LiveData,
 RecyclerView.
 Navigation Component, DI-библиотека (Dagger2, Koin...), Glide.
 ● Язык: Kotlin.
